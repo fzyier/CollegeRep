@@ -1,16 +1,19 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-    const totalPrice = quantity * pricePerDroid;
+function generatePassword(length) {
+    const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
     
-    if (totalPrice > customerCredits) {
-        return "Insufficient funds!";
-    } else {
-        return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+    const allCharacters = uppercaseLetters + lowercaseLetters + numbers;
+    
+    let password = '';
+    
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * allCharacters.length);
+        password += allCharacters[randomIndex];
     }
+    
+    return password;
 }
 
-console.log(makeTransaction(5, 3000, 23000));
-console.log(makeTransaction(3, 1000, 15000));
-console.log(makeTransaction(10, 5000, 8000));
-console.log(makeTransaction(8, 2000, 10000));
-console.log(makeTransaction(10, 500, 5000));
-
+console.log(generatePassword(8));
+console.log(generatePassword(12));

@@ -1,14 +1,8 @@
-function formatMessage(message, maxLength) {
-    if (message.length <= maxLength) {
-        return message;
-    } else {
-        return message.slice(0, maxLength) + "...";
-    }
+function checkPassword(password, confirmPassword) {
+    return password === confirmPassword ? "Passwords match" : "Passwords do not match";
 }
 
-console.log(formatMessage("Curabitur ligula sapien", 16));
-console.log(formatMessage("Curabitur ligula sapien", 23));
-console.log(formatMessage("Vestibulum facilisis purus nec", 20));
-console.log(formatMessage("Vestibulum facilisis purus nec", 30));
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15));
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41));
+console.log(checkPassword("f8G7cB2d", "f8G7cB2d"));
+console.log(checkPassword("A9c7J3m2K5pR", "A9c7J3m2"));
+console.log(checkPassword("abc123", "abc123"));
+console.log(checkPassword("12345678", "87654321"));

@@ -1,35 +1,16 @@
-function generatePassword(length) {
-    const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-    const numbers = '0123456789';
-    
-    const allCharacters = uppercaseLetters + lowercaseLetters + numbers;
-    
-    let password = '';
-    
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * allCharacters.length);
-        password += allCharacters[randomIndex];
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > value) {
+      filteredNumbers.push(numbers[i]);
     }
-    
-    return password;
+  }
+  return filteredNumbers;
 }
 
-function checkPassword(password, confirmPassword) {
-    return password === confirmPassword ? "Passwords match" : "Passwords do not match";
-}
+console.log(filterArray([1, 2, 3, 4, 5], 3));
+console.log(filterArray([1, 2, 3, 4, 5], 4));
+console.log(filterArray([1, 2, 3, 4, 5], 5));
+console.log(filterArray([12, 24, 8, 41, 76], 38));
+console.log(filterArray([12, 24, 8, 41, 76], 20));
 
-function generateAndCheckPassword(length = 8) {
-    const generatedPassword = generatePassword(length);
-    
-    if (confirm('Бажаєте побачити згенерований пароль?')) {
-        alert(generatedPassword);
-    }
-    
-    const userPassword = prompt('Введіть свій пароль для перевірки:');
-    
-    const result = checkPassword(generatedPassword, userPassword);
-    alert(result);
-}
-
-generateAndCheckPassword(8);

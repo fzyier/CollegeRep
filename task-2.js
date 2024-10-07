@@ -1,8 +1,12 @@
-function checkPassword(password, confirmPassword) {
-    return password === confirmPassword ? "Passwords match" : "Passwords do not match";
+function makeArray(firstArray, secondArray, maxLength) {
+  const newArray = firstArray.concat(secondArray);
+  return newArray.length > maxLength ? newArray.slice(0, maxLength) : newArray;
 }
 
-console.log(checkPassword("f8G7cB2d", "f8G7cB2d"));
-console.log(checkPassword("A9c7J3m2K5pR", "A9c7J3m2"));
-console.log(checkPassword("abc123", "abc123"));
-console.log(checkPassword("12345678", "87654321"));
+console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3));
+console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4));
+console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0));
+
